@@ -17,5 +17,5 @@ Simple Example
 Simple Stacking Example
 -----------------------
 
-i![Organisation Chart Stacking Demo](https://github.com/caprica/jquery-orgchart/raw/master/demo/simple-stacking.png "Simple Stacking Demo")
+![Organisation Chart Stacking Demo](https://github.com/caprica/jquery-orgchart/raw/master/demo/simple-stacking.png "Simple Stacking Demo")
 

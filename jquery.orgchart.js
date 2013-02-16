@@ -13,7 +13,7 @@
  */
 (function($) {
 
-    $.fn.orgChart = function(options, $appendTo) {
+    $.fn.orgChart = function(options) {
         var opts = $.extend({}, $.fn.orgChart.defaults, options);
 
         return this.each(function() {
@@ -32,17 +32,18 @@
             $container.find("div.node a").click(function(evt) {
                 evt.stopImmediatePropagation();
             });
-            $appendTo.append($container);
+            opts.container.append($container);
         });
     };
 
     $.fn.orgChart.defaults = {
+        container  : $("body"),
         depth      : -1,
         levels     : -1,
         stack      : false,
         chartClass : "orgChart",
         hoverClass : "hover",
-        nodeText   : function($node) {return "";},
+        nodeText   : function($node) {return $node.clone().children("ul,li").remove().end().html()},
         interactive: false,
         fade       : false,
         speed      : "slow",

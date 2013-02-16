@@ -37,6 +37,20 @@ div.text {
     padding          : 10px;
 }
 
+div#left a {
+    color            : #0000a0;
+}
+
+div.orgChart a {
+    color            : black;
+    text-decoration  : none;
+}
+
+div.orgChart a:hover {
+    color            : black;
+    text-decoration  : underline;
+}
+
 img.star {
     width            : 16px;
     height           : 16px;

@@ -9,7 +9,13 @@ HTML/CSS purists likely would not be happy with this since it uses nested tables
 
 This has been tested on Firefox and Chrome on Linux.
 
-Example
--------
+Simple Example
+--------------
 
 ![Organisation Chart Demo](https://github.com/caprica/jquery-orgchart/raw/master/demo/simple.png "Simple Demo")
+
+Simple Stacking Example
+-----------------------
+
+i![Organisation Chart Stacking Demo](https://github.com/caprica/jquery-orgchart/raw/master/demo/simple-stacking.png "Simple Stacking Demo")
+

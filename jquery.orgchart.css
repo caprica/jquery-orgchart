@@ -56,6 +56,7 @@ div.orgChart td {
 div.orgChart div.node {
     border                : 2px solid black;
     display               : inline-block;
+    padding               : 0 4px;
     width                 : 96px;
     height                : 60px;
     background-color      : #ffffcf;
@@ -68,7 +69,7 @@ div.orgChart div.node {
 }
 
 div.orgChart div.hasChildren {
-    background-color      : #ff0;
+    background-color      : #ffff84;
 }
 
 div.orgChart.interactive div.hasChildren {

@@ -1,10 +1,11 @@
 /**
- * JQuery Organisation Chart Plugin-in.
+ * JQuery Organisation Chart Plugin.
  *
- * Author: Mark Lee.
- * Copyright (C)2013 Caprica Software Limited.
+ * Author: Mark Lee
+ * Copyright (C)2013 Caprica Software Limited 
+ * http://www.capricasoftware.co.uk
  * 
- * http://www.capricasoftware.co.uk 
+ * Contributions by: Paul Lautman <paul.lautman at gmail.com>
  *
  * This software is licensed under the Creative Commons Attribution-ShareAlike 3.0 License,
  * see here for license terms:

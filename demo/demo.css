@@ -1,0 +1,43 @@
+body {
+    font-family      : Ubuntu, SansSerif;
+    width            : 1000px;
+}
+
+h1 {
+    font-size        : 1.3em;
+    padding-bottom   : 10px;
+}
+
+h2 {
+    font-size        : 1em;
+    margin-top       : 0px;
+    margin-bottom    : 8px;
+}
+
+p {
+    margin           : 0px;
+    padding          : 0px;
+    line-height      : 1.5em;
+}
+
+div#left {
+    font-size        : small;
+    position         : fixed;
+    left             : 0;
+    top              : 0;
+    width            : 300px;
+}
+
+div#content {
+    position         : relative;
+    left             : 300px;
+}
+
+div.text {
+    padding          : 10px;
+}
+
+img.star {
+    width            : 16px;
+    height           : 16px;
+}

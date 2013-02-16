@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>Org Chart</title>
+        <link rel="stylesheet" href="demo.css"/>
+        <link rel="stylesheet" href="../jquery.orgchart.css"/>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="../jquery.orgchart.js"></script>
+        <script>
+        $(function() {
+            $("#organisation").orgChart({container: $("#main"), interactive: true, fade: true, speed: 'slow'});
+        });
+        </script>
+    </head>
+
+    <body>
+
+        <div id="left">
+
+            <ul id="organisation">
+                <li><em>Batman</em>
+                    <ul>
+                        <li>Batman Begins<br/>
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <ul>
+                                <li>Ra's Al Ghul</li>
+                                <li>Carmine Falconi</li>
+                            </ul>
+                        </li>
+                        <li>The Dark Knight<br/>
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <ul>
+                                <li>Joker</li>
+                                <li>Harvey Dent</li>
+                            </ul>
+                        </li>
+                        <li>The Dark Knight Rises<br/>
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-half.png">
+                            <ul>
+                                <li>Bane</li>
+                                <li>Talia Al Ghul</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        
+        </div>
+
+        <div id="content">
+        
+            <h1>JQuery/CSS Organisation Chart</h1>
+        
+            <div id="main">
+            </div>
+            
+            <div id="description" class="text">
+                <h2>JQuery</h2>
+                <pre>
+$("#organisation").orgChart({container: $("#main"), interactive: true, fade: true, speed: 'slow'});
+                </pre>
+            </div>
+
+        </div>
+            
+  </body>
+
+</html>

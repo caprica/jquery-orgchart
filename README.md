@@ -14,8 +14,21 @@ Simple Example
 
 ![Organisation Chart Demo](https://github.com/caprica/jquery-orgchart/raw/master/demo/simple.png "Simple Demo")
 
+```
+$("#organisation").orgChart({container: $("#main")});
+```
+
+In this example "#organisation" is the selector for the source list and the "container" option specifies the target container for the generated chart.
+
+https://github.com/caprica/jquery-orgchart/blob/master/demo/simple.html
+
 Simple Stacking Example
 -----------------------
 
 ![Organisation Chart Stacking Demo](https://github.com/caprica/jquery-orgchart/raw/master/demo/simple-stacking.png "Simple Stacking Demo")
 
+$("#organisation").orgChart({container: $("#main"), stack: true, depth: 2});
+
+Building on the previous example, the "stack" option is added with a corresponding chart "depth" of "2". This means that the chart will display two levels before stacking any remaining levels in a single list.
+
+https://github.com/caprica/jquery-orgchart/blob/master/demo/simple-stacking.html

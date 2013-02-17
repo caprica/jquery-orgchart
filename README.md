@@ -27,7 +27,9 @@ Simple Stacking Example
 
 ![Organisation Chart Stacking Demo](https://github.com/caprica/jquery-orgchart/raw/master/demo/simple-stacking.png "Simple Stacking Demo")
 
+```
 $("#organisation").orgChart({container: $("#main"), stack: true, depth: 2});
+```
 
 Building on the previous example, the "stack" option is added with a corresponding chart "depth" of "2". This means that the chart will display two levels before stacking any remaining levels in a single list.
 

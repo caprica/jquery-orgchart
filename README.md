@@ -72,6 +72,6 @@ div.orgChart div.node.level3 {
 
 Each node in the chart automatically gets assigned a class for its level, this can be used to style each level individually.
 
-Any classes that are specified on items in the source list get applied to the corresponding chart node, this can also be used to customise the style for a particular node or collection of nodes. In this example the main protagonist has his own unique background colour applied, overriding the colour for his level in the chart.
+Any classes that are specified on items in the source list get applied to the corresponding chart node, this can also be used to customise the style for a particular node or collection of nodes. In this example the main protagonist has his own unique background colour applied, overriding the colour for his level in the chart. The root of the chart has level zero.
 
 [Source for Styling Levels Demo](https://github.com/caprica/jquery-orgchart/blob/master/demo/styling-levels.html)

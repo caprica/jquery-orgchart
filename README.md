@@ -45,3 +45,28 @@ $("#organisation").orgChart({container: $("#main"), stack: true, depth: 2});
 Building on the previous example, the "stack" option is added with a corresponding chart "depth" of "2". This means that the chart will display two levels before stacking any remaining levels in a single list.
 
 [Source for Simple Stacking Demo](https://github.com/caprica/jquery-orgchart/blob/master/demo/simple-stacking.html)
+
+Styling Levels Example
+----------------------
+
+![Organisation Chart Styling Levels Demo](https://github.com/caprica/jquery-orgchart/raw/master/demo/styling-levels.png "Styling Levels Demo")
+
+```
+$("#organisation").orgChart({container: $("#main")});
+```
+
+```
+div.orgChart div.node.level1 {
+    background-color: #fbcece;
+}
+div.orgChart div.node.level2 {
+    background-color: #cefbce;
+}
+div.orgChart div.node.level3 {
+    background-color: #e0cefb;
+}
+```
+
+Each node in the chart automatically gets assigned a class for its level, this can be used to style each level individually.
+
+[Source for Styling Levels Demo](https://github.com/caprica/jquery-orgchart/blob/master/demo/styling-levels.html)

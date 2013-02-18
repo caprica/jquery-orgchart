@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>Org Chart</title>
+        <link rel="stylesheet" href="demo.css"/>
+        <link rel="stylesheet" href="../jquery.orgchart.css"/>
+        <style>
+        div.orgChart div.node.level1 {
+            background-color: #fbcece;
+        }
+        div.orgChart div.node.level2 {
+            background-color: #cefbce;
+        }
+        div.orgChart div.node.level3 {
+            background-color: #e0cefb;
+        }
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="../jquery.orgchart.js"></script>
+        <script>
+        $(function() {
+            $("#organisation").orgChart({container: $("#main"), stack: true, depth: 4});
+        });
+        </script>
+    </head>
+
+    <body>
+
+        <div id="left">
+
+            <ul id="organisation">
+                <li><em>Inception</em><br/><br/>
+                    <img class="star" src="star-one.png">
+                    <img class="star" src="star-one.png">
+                    <img class="star" src="star-one.png">
+                    <img class="star" src="star-one.png">
+                    <img class="star" src="star-one.png">
+                    <ul>
+                        <li>Cobb
+                            <ul>
+                                <li>Arthur</li>
+                                <li>Ariadne</li>
+                                <li>Eames</li>
+                                <li>Saito</li>
+                                <li>Yusuf</li>
+                            </ul>
+                        </li>
+                        <li>Mal</li>
+                        <li>Miles</li>
+                        <li>Robert Fischer
+                            <ul>
+                                <li>Maurice Fischer
+                                    <ul>
+                                        <li>Peter Browning</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        
+        </div>
+
+        <div id="content">
+        
+            <h1>JQuery/CSS Organisation Chart</h1>
+        
+            <div id="main">
+            </div>
+            
+            <div class="text">
+                <h2>JQuery</h2>
+                <pre>
+$("#organisation").orgChart({container: $("#main")});
+                </pre>
+            </div>
+
+            <div class="text">
+                <h2>CSS</h2>
+                <pre>
+div.orgChart div.node.level1 {
+    background-color: #fbcece;
+}
+div.orgChart div.node.level2 {
+    background-color: #cefbce;
+}
+div.orgChart div.node.level3 {
+    background-color: #e0cefb;
+}
+                </pre>
+            </div>
+
+        </div>
+            
+  </body>
+
+</html>

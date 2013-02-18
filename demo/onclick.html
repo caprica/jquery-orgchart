@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>Org Chart</title>
+        <link rel="stylesheet" href="demo.css"/>
+        <link rel="stylesheet" href="../jquery.orgchart.css"/>
+        <style>
+        div.node {
+            cursor: pointer;
+        }
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="../jquery.orgchart.js"></script>
+        <script>
+        $(function() {
+            $("#organisation").orgChart({container: $("#main"), nodeClicked: onNodeClicked});
+        });
+        function onNodeClicked($node) {
+            var value = $node.clone().children("ul,li,img").remove().end().text();
+            if ($node.data("actor")) {
+                value += " (" + $node.data("actor") + ")";
+            }
+            $("<li>" + value + "</li>").prependTo($("#clicks"));
+        }
+        </script>
+    </head>
+
+    <body>
+
+        <div id="left">
+
+            <ul id="organisation">
+                <li data-actor="Christian Bale"><em>Batman</em>
+                    <ul>
+                        <li>Batman Begins<br/>
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <ul>
+                                <li data-actor="Liam Neeson">Ra's Al Ghul</li>
+                                <li data-actor="Tom Wilkinson">Carmine Falconi</li>
+                            </ul>
+                        </li>
+                        <li>The Dark Knight<br/>
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <ul>
+                                <li data-actor="Heath Ledger">Joker</li>
+                                <li data-actor="Aaron Eckhart">Harvey Dent</li>
+                            </ul>
+                        </li>
+                        <li>The Dark Knight Rises<br/>
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-one.png">
+                            <img class="star" src="star-half.png">
+                            <ul>
+                                <li data-actor="Tom Hardy">Bane</li>
+                                <li data-actor="Marion Cotillard">Talia Al Ghul</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        
+        </div>
+
+        <div id="content">
+        
+            <h1>JQuery/CSS Organisation Chart</h1>
+        
+            <div id="main">
+            </div>
+            
+            <div class="text">
+                <h2>JQuery</h2>
+                <pre>
+$("#organisation").orgChart({container: $("#main")});
+                </pre>
+            </div>
+            
+            <div class="text">
+                <h2>CSS</h2>
+                <pre>
+div.node {
+    cursor: pointer;
+}
+                </pre>
+            </div>
+
+            <div class="text">
+                <h2>Clicks</h2>
+                <p>
+                    Click the nodes in the chart...
+                </p>
+                <p>
+                    Data attributes (in this case the name of the actor) are copied from the original list and made available on each node.
+                </p>
+                <ul id="clicks">
+                </ul>
+            </div>
+        
+        </div>
+            
+  </body>
+
+</html>

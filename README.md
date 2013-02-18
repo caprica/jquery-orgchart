@@ -9,6 +9,17 @@ HTML/CSS purists likely would not be happy with this since it uses nested tables
 
 This has been tested on Firefox and Chrome on Linux.
 
+Features
+--------
+
+ * HTML markup, including clickable hyperlinks, inside the chart nodes;
+ * All attributes from the source list get baked into the corresponding chart nodes (e.g. you can annotate the nodes with your own "data" attributes);
+ * Options to limit the chart to the desired number of levels, and show remaining levels in a single stack;
+ * Optional callback to handle clicked chart nodes;
+ * Small size, only 3K minified (6K un-minified);
+ * Easy to to change the appearance of the chart by overriding a small number of CSS style rules;
+ * Does exactly what it says on the tin, no feature bloat!
+ 
 Simple Example
 --------------
 

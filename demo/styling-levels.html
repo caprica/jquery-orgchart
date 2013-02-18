@@ -9,6 +9,9 @@
         div.orgChart div.node.level1 {
             background-color: #fbcece;
         }
+        div.orgChart div.node.level1.special {
+            background-color: white;
+        }
         div.orgChart div.node.level2 {
             background-color: #cefbce;
         }
@@ -37,7 +40,7 @@
                     <img class="star" src="star-one.png">
                     <img class="star" src="star-one.png">
                     <ul>
-                        <li>Cobb
+                        <li class="special">Cobb
                             <ul>
                                 <li>Arthur</li>
                                 <li>Ariadne</li>
@@ -82,6 +85,9 @@ $("#organisation").orgChart({container: $("#main")});
                 <pre>
 div.orgChart div.node.level1 {
     background-color: #fbcece;
+}
+div.orgChart div.node.level1.special {
+    background-color: white;
 }
 div.orgChart div.node.level2 {
     background-color: #cefbce;

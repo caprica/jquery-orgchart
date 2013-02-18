@@ -66,6 +66,9 @@
         var $heading = $("<h2>").html(opts.nodeText($node));
         $nodeDiv = $("<div>").addClass("node").addClass("level"+level).data("orgchart-level", level).data("orgchart-node", $node).append($heading);
 
+        // Copy classes from the source list to the chart node
+        $nodeDiv.addClass($node.attr("class"));
+
         $nodeCell.append($nodeDiv);
         $nodeRow.append($nodeCell);
         $tbody.append($nodeRow);

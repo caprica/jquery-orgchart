@@ -27,6 +27,8 @@ Configuration Options
 
 `container` (jQuery element) specifies the element that will contain the chart.
 
+`copyClasses` (boolean) specifies whether or not CSS classes should be copied from the source list to the associated chart nodes.
+
 `depth` (integer) is used in conjunction with `stack` to configure at what level the stacking takes effect.
 
 `fade` (boolean) is used to enable a fading animation when showing/hiding chart nodes.

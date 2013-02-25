@@ -61,6 +61,7 @@ div.orgChart div.node {
     width                 : 96px;
     height                : 60px;
     background-color      : #ffffcf;
+    line-height           : 1.3em;
     border-radius         : 8px;
     box-shadow            : 4px 4px 6px #888888;
     -moz-border-radius    : 8px;

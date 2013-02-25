@@ -41,6 +41,7 @@
         container  : $("body"),
         depth      : -1,
         levels     : -1,
+        showLevels : -1,
         stack      : false,
         chartClass : "orgChart",
         hoverClass : "hover",
@@ -145,6 +146,10 @@
                 $nodeDiv.after($list);
             }
             $tbody.append($childNodesRow);
+        }
+
+        if (opts.showLevels > -1 && level >= opts.showLevels-1) {
+            $nodeRow.nextAll("tr").hide();
         }
 
         $table.append($tbody);

@@ -20,6 +20,33 @@ Features
  * Easy to to change the appearance of the chart by overriding a small number of CSS style rules;
  * Does exactly what it says on the tin, no feature bloat!
  
+Configuration Options
+---------------------
+
+`chartClass` (string) is used to specify a CSS class to add to the created chart.
+
+`container` (jQuery element) specifies the element that will contain the chart.
+
+`depth` (integer) is used in conjunction with `stack` to configure at what level the stacking takes effect.
+
+fade (boolean) is used to enable a fading animation when showing/hiding chart nodes.
+
+`hoverClass` (string) is used to specify the CSS class that gets dynamically added to chart nodes on mouse-over.
+
+`interactive` (boolean) is used to enable interactive chart features, like clicking to show/hide child nodes.
+
+`levels` (integer) specifies how many levels deep in the source list are used to create the chart.
+
+`nodeClicked` (function) callback function invoked when a chart node is clicked.
+
+`nodeText` (function) callback function used to extract node text context.
+
+`showLevels` (integer) specifies how many chart levels to show initially.
+
+`speed` (jQuery speed) specifies the animation speed if `fade` is enabled.
+
+`stack` (boolean) is used to enable stacking.
+ 
 Simple Example
 --------------
 

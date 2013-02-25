@@ -86,8 +86,10 @@
                     else {
                         $row.nextAll("tr").hide();
                     }
+                    $this.removeClass("shownChildren").addClass("hiddenChildren");
                 }
                 else {
+                    $this.removeClass("hiddenChildren").addClass("shownChildren");
                     if (opts.fade) {
                         $row.nextAll("tr").fadeIn(opts.speed);
                     }
@@ -117,6 +119,12 @@
                 
                 if ($childNodes.length > 0) {
                     $nodeDiv.addClass("hasChildren");
+                    if (opts.showLevels == -1 || level < opts.showLevels-1) {
+                        $nodeDiv.addClass("shownChildren");
+                    }
+                    else {
+                        $nodeDiv.addClass("hiddenChildren");
+                    }
                     if (opts.interactive) {
                         $nodeDiv.hover(function() {$(this).addClass(opts.hoverClass);}, function() {$(this).removeClass(opts.hoverClass)});
                     }

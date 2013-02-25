@@ -49,7 +49,8 @@
         interactive: false,
         fade       : false,
         speed      : "slow",
-        nodeClicked: function($node) {}
+        nodeClicked: function($node) {},
+        copyClasses: true
     };
 
     function buildNode($node, $appendTo, level, opts) {
@@ -68,7 +69,9 @@
         $nodeDiv = $("<div>").addClass("node").addClass("level"+level).data("orgchart-level", level).data("orgchart-node", $node).append($heading);
 
         // Copy classes from the source list to the chart node
-        $nodeDiv.addClass($node.attr("class"));
+        if (opts.copyClasses) {
+            $nodeDiv.addClass($node.attr("class"));
+        }
 
         $nodeCell.append($nodeDiv);
         $nodeRow.append($nodeCell);

@@ -29,7 +29,7 @@ Configuration Options
 
 `depth` (integer) is used in conjunction with `stack` to configure at what level the stacking takes effect.
 
-fade (boolean) is used to enable a fading animation when showing/hiding chart nodes.
+`fade` (boolean) is used to enable a fading animation when showing/hiding chart nodes.
 
 `hoverClass` (string) is used to specify the CSS class that gets dynamically added to chart nodes on mouse-over.
 

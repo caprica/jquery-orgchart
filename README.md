@@ -60,7 +60,7 @@ $("#organisation").orgChart({container: $("#main")});
 
 In this example "#organisation" is the selector for the source list and the "container" option specifies the target container for the generated chart.
 
-[Live Demo](http://capricasoftware.co.uk/jquery/neworgchart/demo/simple.html)
+[Live Demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demo1.html)
 
 [Source for Simple Demo](https://github.com/caprica/jquery-orgchart/blob/master/demo/simple.html)
 
@@ -75,7 +75,7 @@ $("#organisation").orgChart({container: $("#main"), stack: true, depth: 2});
 
 Building on the previous example, the "stack" option is added with a corresponding chart "depth" of "2". This means that the chart will display two levels before stacking any remaining levels in a single list.
 
-[Live Demo](http://capricasoftware.co.uk/jquery/neworgchart/demo/simple-stacking.html)
+[Live Demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demo2.html)
 
 [Source for Simple Stacking Demo](https://github.com/caprica/jquery-orgchart/blob/master/demo/simple-stacking.html)
 
@@ -107,7 +107,7 @@ Each node in the chart automatically gets assigned a class for its level, this c
 
 Any classes that are specified on items in the source list get applied to the corresponding chart node, this can also be used to customise the style for a particular node or collection of nodes. In this example the main protagonist has his own unique background colour applied, overriding the colour for his level in the chart. The root of the chart has level zero.
 
-[Live Demo](http://capricasoftware.co.uk/jquery/neworgchart/demo/styling-levels.html)
+[Live Demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demo5.html)
 
 [Source for Styling Levels Demo](https://github.com/caprica/jquery-orgchart/blob/master/demo/styling-levels.html)
 
@@ -120,13 +120,13 @@ Eating Your Own Dog Food Example
 $("#organisation").orgChart({container: $("#main")});
 ```
 
-[Live Demo](http://capricasoftware.co.uk/jquery/neworgchart/demo/dogfood.html)
+[Live Demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demo7.html)
 
 [Source for Dog Food Demo](https://github.com/caprica/jquery-orgchart/blob/master/demo/dogfood.html)
 
 Other Examples
 --------------
 
-[Simple Interactive Live Demo](http://capricasoftware.co.uk/jquery/neworgchart/demo/simple-interactive.html)  
-[Links Live Demo](http://capricasoftware.co.uk/jquery/neworgchart/demo/links.html)  
-[On-Click Live Demo](http://capricasoftware.co.uk/jquery/neworgchart/demo/onclick.html)
+[Simple Interactive Live Demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demo3.html)  
+[Links Live Demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demo4.html)  
+[On-Click Live Demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demo6.html)

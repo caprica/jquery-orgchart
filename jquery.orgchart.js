@@ -52,7 +52,8 @@
         nodeClicked: function($node) {},
         copyClasses: true,
         copyData   : true,
-        copyStyles : true
+        copyStyles : true,
+        copyTitle  : true
     };
 
     function buildNode($node, $appendTo, level, index, opts) {
@@ -83,6 +84,11 @@
         // Copy CSS styles from the source list to the chart node
         if (opts.copyStyles) {
             $nodeDiv.attr("style", $node.attr("style"));
+        }
+
+        // Copy the title attribute from the source list to the chart node
+        if (opts.copyTitle) {
+            $nodeDiv.attr("title", $node.attr("title"));
         }
 
         $nodeDiv.data("orgchart-level", level).data("orgchart-node", $node);

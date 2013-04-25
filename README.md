@@ -9,14 +9,17 @@ HTML/CSS purists likely would not be happy with this since it uses nested tables
 
 This has been tested on Firefox and Chrome on Linux, and Firefox and Chrome on Windows. It also works on IE8, but due to the deficient CSS support in that broken browser the chart looks quite basic.
 
+See [jquery-orgchart-plugin](http://www.capricasoftware.co.uk/projects/jquery-orgchart/index.html) for more information.
+
 Features
 --------
 
  * HTML markup, including clickable hyperlinks, inside the chart nodes;
  * All attributes from the source list get baked into the corresponding chart nodes (e.g. you can annotate the nodes with your own "data" attributes);
  * Options to limit the chart to the desired number of levels, and show remaining levels in a single stack;
+ * Options to copy CSS styles, classes, HTML data attributes and title attributes (useful for tooltips or external tooltip plugins) from the source list (all enabled by default);
  * Optional callback to handle clicked chart nodes;
- * Small size, only 3K minified (6K un-minified);
+ * Small size, only 3K minified (7K un-minified);
  * Easy to to change the appearance of the chart by overriding a small number of CSS style rules;
  * Does exactly what it says on the tin, no feature bloat!
  
@@ -28,6 +31,12 @@ Configuration Options
 `container` (jQuery element) specifies the element that will contain the chart.
 
 `copyClasses` (boolean) specifies whether or not CSS classes should be copied from the source list to the associated chart nodes.
+
+`copyData` (boolean) specifies whether or not data attribute values should be copied from the source list to the associated chart nodes.
+
+`copyStyles` (boolean) specifies whether or not the CSS "style" attribute values should be copied from the source list to the associated chart nodes.
+
+`copyTitle` (boolean) specifies whether or not the "title" attribute values should be copied from the source list to the associated chart nodes.
 
 `depth` (integer) is used in conjunction with `stack` to configure at what level the stacking takes effect.
 

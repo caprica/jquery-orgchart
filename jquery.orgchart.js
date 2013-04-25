@@ -27,7 +27,7 @@
                 $container.addClass("interactive");
             }
             if ($this.is("ul")) {
-                buildNode($this.find("li:first"), $container, 0, opts);
+                buildNode($this.find("li:first"), $container, 0, 0, opts);
             }
             // Special case for any hyperlink anchor in the chart to prevent the click on the node itself from propagating
             $container.find("div.node a").click(function(evt) {
@@ -50,10 +50,12 @@
         fade       : false,
         speed      : "slow",
         nodeClicked: function($node) {},
-        copyClasses: true
+        copyClasses: true,
+        copyData   : true,
+        copyStyles : true
     };
 
-    function buildNode($node, $appendTo, level, opts) {
+    function buildNode($node, $appendTo, level, index, opts) {
         var $table = $("<table cellpadding='0' cellspacing='0' border='0'/>");
         var $tbody = $("<tbody/>");
 
@@ -66,12 +68,24 @@
         }
         
         var $heading = $("<h2>").html(opts.nodeText($node));
-        $nodeDiv = $("<div>").addClass("node").addClass("level"+level).data("orgchart-level", level).data("orgchart-node", $node).append($heading);
+        var $nodeDiv = $("<div>").addClass("node").addClass("level"+level).addClass("node"+index).addClass("level"+level+"-node"+index).append($heading);
 
         // Copy classes from the source list to the chart node
         if (opts.copyClasses) {
             $nodeDiv.addClass($node.attr("class"));
         }
+
+        // Copy data from the source list to the chart node
+        if (opts.copyData) {
+            $nodeDiv.data($node.data());
+        }
+
+        // Copy CSS styles from the source list to the chart node
+        if (opts.copyStyles) {
+            $nodeDiv.attr("style", $node.attr("style"));
+        }
+
+        $nodeDiv.data("orgchart-level", level).data("orgchart-node", $node);
 
         $nodeCell.append($nodeDiv);
         $nodeRow.append($nodeCell);
@@ -108,7 +122,7 @@
                 var $downLineRow = $("<tr/>").addClass("lines");
                 var $downLineCell = $("<td/>").attr("colspan", $childNodes.length*2);
                 $downLineRow.append($downLineCell);
-        
+
                 var $downLineTable = $("<table cellpadding='0' cellspacing='0' border='0'>");
                 $downLineTable.append("<tbody>");
                 var $downLineLine = $("<tr/>").addClass("lines x");
@@ -119,7 +133,7 @@
                 $downLineCell.append($downLineTable);
 
                 $tbody.append($downLineRow);
-                
+
                 if ($childNodes.length > 0) {
                     $nodeDiv.addClass("hasChildren");
                     if (opts.showLevels == -1 || level < opts.showLevels-1) {
@@ -132,7 +146,7 @@
                         $nodeDiv.hover(function() {$(this).addClass(opts.hoverClass);}, function() {$(this).removeClass(opts.hoverClass)});
                     }
                 }
-            
+
                 // Recursively make child nodes...
                 var $linesRow = $("<tr/>").addClass("lines v");
                 $childNodes.each(function() {
@@ -144,10 +158,10 @@
                 $linesRow.find("td:last").removeClass("top");
                 $tbody.append($linesRow);
                 var $childNodesRow = $("<tr/>");
-                $childNodes.each(function() {
+                $childNodes.each(function(index) {
                     var $td = $("<td/>");
                     $td.attr("colspan", 2);
-                    buildNode($(this), $td, level+1, opts);
+                    buildNode($(this), $td, level+1, index, opts);
                     $childNodesRow.append($td);
                 });
             }

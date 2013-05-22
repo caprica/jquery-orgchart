@@ -11,6 +11,8 @@ This has been tested on Firefox and Chrome on Linux, and Firefox and Chrome on W
 
 See [jquery-orgchart-plugin](http://www.capricasoftware.co.uk/projects/jquery-orgchart/index.html) for more information.
 
+There are also some [live demos](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demos.html).
+
 Features
 --------
 

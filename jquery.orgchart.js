@@ -48,7 +48,7 @@
         stack      : false,
         chartClass : "orgChart",
         hoverClass : "hover",
-        nodeText   : function($node) {return $node.clone().children("ul,li").remove().end().html()},
+        nodeText   : function($node) {return $node.clone().children("ul,li").remove().end().html();},
         interactive: false,
         fade       : false,
         speed      : "slow",

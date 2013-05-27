@@ -175,7 +175,8 @@
             else if (opts.stack) {
                 var $stackNodes = $childNodes.clone();
                 var $list = $("<ul class='stack'>").append($stackNodes);
-                $nodeDiv.after($list);
+                var $stackContainer = $("<div class='stack-container'>").append($list);
+                $nodeDiv.after($stackContainer);
             }
         }
 

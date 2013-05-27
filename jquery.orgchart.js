@@ -29,6 +29,9 @@
             if ($this.is("ul")) {
                 buildNode($this.find("li:first"), $container, 0, 0, opts);
             }
+            else if ($this.is("li")) {
+                buildNode($this, $container, 0, 0, opts);
+            }
             // Special case for any hyperlink anchor in the chart to prevent the click on the node itself from propagating
             $container.find("div.node a").click(function(evt) {
                 evt.stopImmediatePropagation();

@@ -170,13 +170,13 @@
                     buildNode($(this), $td, level+1, index, opts);
                     $childNodesRow.append($td);
                 });
+                $tbody.append($childNodesRow);
             }
             else if (opts.stack) {
                 var $stackNodes = $childNodes.clone();
                 var $list = $("<ul class='stack'>").append($stackNodes);
                 $nodeDiv.after($list);
             }
-            $tbody.append($childNodesRow);
         }
 
         if (opts.showLevels > -1 && level >= opts.showLevels-1) {

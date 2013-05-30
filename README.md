@@ -13,6 +13,9 @@ See [jquery-orgchart-plugin](http://www.capricasoftware.co.uk/projects/jquery-or
 
 There are also some [live demos](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demos.html).
 
+There is also an [advanced live demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/advanced/index.html)
+showing Bootstrap integration and one approach to navigating an interactive chart.
+
 Features
 --------
 
@@ -143,7 +146,3 @@ Other Examples
 [Simple Interactive Live Demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demo3.html)  
 [Links Live Demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demo4.html)  
 [On-Click Live Demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demo6.html)
-
-An advanced demo showing Bootstrap integration, and one approach to navigating an interactive chart:
-
-[Advanced](http://www.capricasoftware.co.uk/projects/jquery-orgchart/advanced/index.html)

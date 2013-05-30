@@ -192,7 +192,7 @@
             }
             else if (opts.stack) {
                 var $stackNodes = $childNodes.clone();
-                var $list = $("<ul class='stack'>").append($stackNodes);
+                var $list = $("<ul class='stack'>").append($stackNodes).addClass("level"+level).addClass("node"+index).addClass("level"+level+"-node"+index);
                 var $stackContainer = $("<div class='stack-container'>").append($list);
                 $nodeDiv.after($stackContainer);
             }

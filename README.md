@@ -54,6 +54,8 @@ Configuration Options
 
 `nodeText` (function) callback function used to extract node text context.
 
+`replace` (boolean) true if the chart container should be emptied before generating the chart.
+
 `showLevels` (integer) specifies how many chart levels to show initially.
 
 `speed` (jQuery speed) specifies the animation speed if `fade` is enabled.

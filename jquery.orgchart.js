@@ -18,25 +18,36 @@
         var opts = $.extend({}, $.fn.orgChart.defaults, options);
 
         return this.each(function() {
-            $this = $(this).clone();
+            var $chartSource = $(this);
+            // Clone the source list hierarchy so levels can be non-destructively removed if needed
+            // before creating the chart
+            $this = $chartSource.clone();
             if (opts.levels > -1) {
-                $this.find("ul").andSelf().filter(function() {return $(this).parents("ul").length+1 > opts.levels;}).remove();
+                $this.find("ul").andSelf().filter(function() {return $chartSource.parents("ul").length+1 > opts.levels;}).remove();
             }
+            // Store the original element
+            $this.data("chart-source", $chartSource);
+            // Build the chart...
             var $container = $("<div class='" + opts.chartClass + "'/>");
             if (opts.interactive) {
                 $container.addClass("interactive");
             }
+            // The chart may be sourced from either a "ul", or an "li" element...
+            var $root;
             if ($this.is("ul")) {
-                buildNode($this.find("li:first"), $container, 0, 0, opts);
+                $root = $this.find("li:first");
             }
             else if ($this.is("li")) {
-                buildNode($this, $container, 0, 0, opts);
+                $root = $this;
             }
-            // Special case for any hyperlink anchor in the chart to prevent the click on the node itself from propagating
-            $container.find("div.node a").click(function(evt) {
-                evt.stopImmediatePropagation();
-            });
-            opts.container.append($container);
+            if ($root) {
+                buildNode($root, $container, 0, 0, opts);
+                // Special case for any hyperlink anchor in the chart to prevent the click on the node itself from propagating
+                $container.find("div.node a").click(function(evt) {
+                    evt.stopImmediatePropagation();
+                });
+                opts.container.append($container);
+            }
         });
     };
 

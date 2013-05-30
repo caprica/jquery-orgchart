@@ -46,6 +46,9 @@
                 $container.find("div.node a").click(function(evt) {
                     evt.stopImmediatePropagation();
                 });
+                if(opts.replace) {
+                    opts.container.empty();
+                }
                 opts.container.append($container);
             }
         });
@@ -67,7 +70,8 @@
         copyClasses: true,
         copyData   : true,
         copyStyles : true,
-        copyTitle  : true
+        copyTitle  : true,
+        replace    : true
     };
 
     function buildNode($node, $appendTo, level, index, opts) {

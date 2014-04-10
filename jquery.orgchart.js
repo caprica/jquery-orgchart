@@ -117,7 +117,7 @@
 
         $nodeDiv.click(function() {
             var $this = $(this);
-            opts.nodeClicked($this.data("orgchart-node"));
+            opts.nodeClicked($this.data("orgchart-node"), $this);
             if (opts.interactive) {
                 var $row = $this.closest("tr");
                 if ($row.next("tr").is(":visible")) {

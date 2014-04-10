@@ -53,7 +53,7 @@ Configuration Options
 
 `levels` (integer) specifies how many levels deep in the source list are used to create the chart.
 
-`nodeClicked` (function) callback function invoked when a chart node is clicked.
+`nodeClicked` (function) callback function invoked when a chart node is clicked: the first parameter is the underlying node element; the second parameter is the visual component that was clicked (a jQuery object).
 
 `nodeText` (function) callback function used to extract node text context.
 

@@ -15,13 +15,16 @@
 (function($) {
 
     $.fn.orgChart = function(options) {
-        var opts = $.extend({}, $.fn.orgChart.defaults, options);
+        var opts = $.extend({}, $.fn.orgChart.defaults, options),
+            currentNode;
+
+        $( opts.addNodeEventTrigger ).click( addNode );
 
         return this.each(function() {
             var $chartSource = $(this);
             // Clone the source list hierarchy so levels can be non-destructively removed if needed
             // before creating the chart
-            $this = $chartSource.clone();
+            $this = $chartSource;
             if (opts.levels > -1) {
                 $this.find("ul").andSelf().filter(function() {return $chartSource.parents("ul").length+1 > opts.levels;}).remove();
             }
@@ -71,8 +74,29 @@
         copyData   : true,
         copyStyles : true,
         copyTitle  : true,
-        replace    : true
+        replace    : true,
+        addNodeEventTrigger: false
     };
+
+    function addNode() {
+
+       if ( currentNode ) {
+            
+            var hasChildren = currentNode.hasClass('hasChildren');
+
+            if ( !hasChildren ) {
+
+                currentNode.append('<ul><li style="font-size: 75%">hi</li></ul>');
+            }
+
+            else {
+
+                currentNode.find('ul:first').append('<li style="font-size: 75%">hi</li>');
+
+            }
+       }
+
+    }
 
     function buildNode($node, $appendTo, level, index, opts) {
         var $table = $("<table cellpadding='0' cellspacing='0' border='0'/>");
@@ -117,6 +141,9 @@
 
         $nodeDiv.click(function() {
             var $this = $(this);
+
+            currentNode = $node;
+
             opts.nodeClicked($this.data("orgchart-node"), $this);
             if (opts.interactive) {
                 var $row = $this.closest("tr");
@@ -140,6 +167,7 @@
                 }
             }
         });
+
 
         if ($childNodes.length > 0) {
             if (opts.depth == -1 || level+1 < opts.depth) {

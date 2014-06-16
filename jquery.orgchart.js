@@ -18,7 +18,11 @@
         var opts = $.extend({}, $.fn.orgChart.defaults, options),
             currentNode;
 
-        $( opts.addNodeEventTrigger ).click( addNode );
+        $( opts.addNodeEvent.trigger ).unbind().click( function() { addNode( opts.addNodeEvent.text, opts.addNodeEvent.refresh ); });
+
+        $( opts.editNodeEvent.trigger ).unbind().click( function() { editNode( opts.addNodeEvent.text, opts.addNodeEvent.refresh ); });
+
+        $( opts.deleteNodeEvent.trigger ).unbind().click( function() { deleteNode( opts.deleteNodeEvent.refresh ); });
 
         return this.each(function() {
             var $chartSource = $(this);
@@ -75,27 +79,55 @@
         copyStyles : true,
         copyTitle  : true,
         replace    : true,
-        addNodeEventTrigger: false
+        addNodeEvent: false,
+        editNodeEvent: false,
+        deleteNodeEvent: false
     };
 
-    function addNode() {
+    function addNode( nodeText, refresh ) {
 
        if ( currentNode ) {
             
-            var hasChildren = currentNode.hasClass('hasChildren');
+            var hasChildren = currentNode.visualElement.hasClass('hasChildren');
 
             if ( !hasChildren ) {
 
-                currentNode.append('<ul><li style="font-size: 75%">hi</li></ul>');
+                currentNode.listElement.append('<ul><li>' + nodeText.val() + '</li></ul>');
             }
 
             else {
 
-                currentNode.find('ul:first').append('<li style="font-size: 75%">hi</li>');
+                currentNode.listElement.find('ul:first').append('<li>' + nodeText.val() + '</li>');
 
             }
+
+            refresh();
+
        }
 
+    }
+
+    function editNode( nodeText, refresh ) {
+
+        var nodeHTML = currentNode.listElement.html(),
+            parserForULelement = nodeHTML.indexOf('<ul>'),
+            preHTMLinsert = nodeHTML.substring(parserForULelement, nodeHTML.length),
+            HTMLinsert = ( parserForULelement === -1 ) ? nodeText.val() : nodeText.val() + preHTMLinsert;
+
+            currentNode.listElement.html( HTMLinsert );
+
+            refresh();
+    }
+
+    function deleteNode( refresh ) {
+
+        var otherElements = currentNode.listElement.parent().children().length;
+    
+        if (otherElements > 1) { currentNode.listElement.remove(); }
+
+        else { currentNode.listElement.parent().remove(); }
+
+        refresh();
     }
 
     function buildNode($node, $appendTo, level, index, opts) {
@@ -142,7 +174,7 @@
         $nodeDiv.click(function() {
             var $this = $(this);
 
-            currentNode = $node;
+            currentNode = { listElement: $node, visualElement: $this };
 
             opts.nodeClicked($this.data("orgchart-node"), $this);
             if (opts.interactive) {

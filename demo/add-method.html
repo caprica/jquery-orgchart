@@ -24,10 +24,20 @@
         <script src="../jquery.orgchart.js"></script>
         <script>
         $(function() {
-            $("#organisation").orgChart({
-                container: $("#main"),
-                addNodeEventTrigger: $('#addNode')
-            });
+            
+            var refreshChart = function() {
+
+                $("#organisation").orgChart({
+                    container: $("#main"),
+                    replace: true,
+                    addNodeEvent: { trigger: $('#addNode'), text: $('#nodeText'), refresh: refreshChart },
+                    editNodeEvent:{ trigger: $('#editNode'), text: $('#nodeText'), refresh: refreshChart },
+                    deleteNodeEvent: { trigger: $('#deleteNode'), refresh: refreshChart }
+                });
+
+            }
+
+            refreshChart()
 
         });
         </script>
@@ -99,7 +109,20 @@
             <div class="text">
                 <h2>JQuery</h2>
                 <pre>
-$("#organisation").orgChart({container: $("#main")});
+                var refreshChart = function() {
+
+                    $("#organisation").orgChart({
+                        container: $("#main"),
+                        replace: true,
+                        addNodeEvent: { trigger: $('#addNode'), text: $('#nodeText'), refresh: refreshChart },
+                        editNodeEvent:{ trigger: $('#editNode'), text: $('#nodeText'), refresh: refreshChart },
+                        deleteNodeEvent: { trigger: $('#deleteNode'), refresh: refreshChart }
+                    });
+
+
+                }
+
+                refreshChart()
                 </pre>
             </div>
 

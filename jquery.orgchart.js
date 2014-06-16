@@ -18,16 +18,15 @@
         var opts = $.extend({}, $.fn.orgChart.defaults, options),
             currentNode;
 
-        $( opts.addNodeEvent.trigger ).unbind().click( function() { addNode( opts.addNodeEvent ); });
+        $( opts.onAddNode.trigger ).unbind().click( function() { addNode( opts.onAddNode ); });
 
-        $( opts.editNodeEvent.trigger ).unbind().click( function() { editNode( opts.editNodeEvent ); });
+        $( opts.onEditNode.trigger ).unbind().click( function() { editNode( opts.onEditNode ); });
 
-        $( opts.deleteNodeEvent.trigger ).unbind().click( function() { deleteNode( opts.deleteNodeEvent ); });
+        $( opts.onDeleteNode.trigger ).unbind().click( function() { deleteNode( opts.onDeleteNode ); });
 
         return this.each(function() {
             var $chartSource = $(this);
-            // Clone the source list hierarchy so levels can be non-destructively removed if needed
-            // before creating the chart
+            
             $this = $chartSource;
             if (opts.levels > -1) {
                 $this.find("ul").andSelf().filter(function() {return $chartSource.parents("ul").length+1 > opts.levels;}).remove();
@@ -62,50 +61,42 @@
     };
 
     $.fn.orgChart.defaults = {
-        container  : $("body"),
-        depth      : -1,
-        levels     : -1,
-        showLevels : -1,
-        stack      : false,
-        chartClass : "orgChart",
-        hoverClass : "hover",
-        nodeText   : function($node) {return $node.clone().children("ul,li").remove().end().html();},
-        interactive: false,
-        fade       : false,
-        speed      : "slow",
-        nodeClicked: function($node) {},
-        copyClasses: true,
-        copyData   : true,
-        copyStyles : true,
-        copyTitle  : true,
-        replace    : true,
-        addNodeEvent: false,
-        editNodeEvent: false,
-        deleteNodeEvent: false
+        container   : $("body"),
+        depth       : -1,
+        levels      : -1,
+        showLevels  : -1,
+        stack       : false,
+        chartClass  : "orgChart",
+        hoverClass  : "hover",
+        nodeText    : function($node) {return $node.clone().children("ul,li").remove().end().html();},
+        interactive : false,
+        fade        : false,
+        speed       : "slow",
+        nodeClicked : function($node) {},
+        copyClasses : true,
+        copyData    : true,
+        copyStyles  : true,
+        copyTitle   : true,
+        replace     : true,
+        onAddNode   : false,
+        onEditNode  : false,
+        onDeleteNode: false
     };
 
     function addNode( node ) {
-
         if ( currentNode ) {
-            
             var hasChildren = currentNode.visualElement.hasClass('hasChildren'),
                 nodeTextValue = ( node.text instanceof jQuery ) ? node.text.val() : node.text;
 
             if ( !hasChildren ) {
-
                 currentNode.listElement.append('<ul><li>' + nodeTextValue + '</li></ul>');
             }
-
             else {
 
                 currentNode.listElement.find('ul:first').append('<li>' + nodeTextValue + '</li>');
-
             }
-
             node.refresh();
-
         }
-
     }
 
     function editNode( node ) {
@@ -124,11 +115,10 @@
     function deleteNode( node ) {
 
         var otherElements = currentNode.listElement.parent().children().length;
-    
+
+        //if this is a parent element of children, we need to delete the UL as well
         if (otherElements > 1) { currentNode.listElement.remove(); }
-
         else { currentNode.listElement.parent().remove(); }
-
         node.refresh();
     }
 
@@ -175,7 +165,6 @@
 
         $nodeDiv.click(function() {
             var $this = $(this);
-
             currentNode = { listElement: $node, visualElement: $this };
 
             opts.nodeClicked($this.data("orgchart-node"), $this);
@@ -201,7 +190,6 @@
                 }
             }
         });
-
 
         if ($childNodes.length > 0) {
             if (opts.depth == -1 || level+1 < opts.depth) {

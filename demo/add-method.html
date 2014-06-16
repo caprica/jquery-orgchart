@@ -30,9 +30,9 @@
                 $("#organisation").orgChart({
                     container: $("#main"),
                     replace: true,
-                    addNodeEvent: { trigger: $('#addNode'), text: $('#nodeText'), refresh: refreshChart },
-                    editNodeEvent:{ trigger: $('#editNode'), text: $('#nodeText'), refresh: refreshChart },
-                    deleteNodeEvent: { trigger: $('#deleteNode'), refresh: refreshChart }
+                    onAddNode: { trigger: $('#addNode'), text: $('#nodeText'), refresh: refreshChart },
+                    onEditNode:{ trigger: $('#editNode'), text: $('#nodeText'), refresh: refreshChart },
+                    onDeleteNode: { trigger: $('#deleteNode'), refresh: refreshChart }
                 });
 
             }
@@ -114,9 +114,9 @@
                     $("#organisation").orgChart({
                         container: $("#main"),
                         replace: true,
-                        addNodeEvent: { trigger: $('#addNode'), text: $('#nodeText'), refresh: refreshChart },
-                        editNodeEvent:{ trigger: $('#editNode'), text: $('#nodeText'), refresh: refreshChart },
-                        deleteNodeEvent: { trigger: $('#deleteNode'), refresh: refreshChart }
+                        onAddNode: { trigger: $('#addNode'), text: $('#nodeText'), refresh: refreshChart },
+                        onEditNode:{ trigger: $('#editNode'), text: $('#nodeText'), refresh: refreshChart },
+                        onDeleteNode: { trigger: $('#deleteNode'), refresh: refreshChart }
                     });
 
 

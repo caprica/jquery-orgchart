@@ -15,13 +15,20 @@
 (function($) {
 
     $.fn.orgChart = function(options) {
-        var opts = $.extend({}, $.fn.orgChart.defaults, options);
+        var opts = $.extend({}, $.fn.orgChart.defaults, options),
+            currentNode;
+
+        $( opts.addNodeEvent.trigger ).unbind().click( function() { addNode( opts.addNodeEvent ); });
+
+        $( opts.editNodeEvent.trigger ).unbind().click( function() { editNode( opts.editNodeEvent ); });
+
+        $( opts.deleteNodeEvent.trigger ).unbind().click( function() { deleteNode( opts.deleteNodeEvent ); });
 
         return this.each(function() {
             var $chartSource = $(this);
             // Clone the source list hierarchy so levels can be non-destructively removed if needed
             // before creating the chart
-            $this = $chartSource.clone();
+            $this = $chartSource;
             if (opts.levels > -1) {
                 $this.find("ul").andSelf().filter(function() {return $chartSource.parents("ul").length+1 > opts.levels;}).remove();
             }
@@ -71,8 +78,59 @@
         copyData   : true,
         copyStyles : true,
         copyTitle  : true,
-        replace    : true
+        replace    : true,
+        addNodeEvent: false,
+        editNodeEvent: false,
+        deleteNodeEvent: false
     };
+
+    function addNode( node ) {
+
+        if ( currentNode ) {
+            
+            var hasChildren = currentNode.visualElement.hasClass('hasChildren'),
+                nodeTextValue = ( node.text instanceof jQuery ) ? node.text.val() : node.text;
+
+            if ( !hasChildren ) {
+
+                currentNode.listElement.append('<ul><li>' + nodeTextValue + '</li></ul>');
+            }
+
+            else {
+
+                currentNode.listElement.find('ul:first').append('<li>' + nodeTextValue + '</li>');
+
+            }
+
+            node.refresh();
+
+        }
+
+    }
+
+    function editNode( node ) {
+
+        var nodeHTML = currentNode.listElement.html(),
+            parserForULelement = nodeHTML.indexOf('<ul>'),
+            preHTMLinsert = nodeHTML.substring(parserForULelement, nodeHTML.length),
+            nodeTextValue = ( node.text instanceof jQuery ) ? node.text.val() : node.text;
+            HTMLinsert = ( parserForULelement === -1 ) ? nodeTextValue : nodeTextValue + preHTMLinsert;
+
+            currentNode.listElement.html( HTMLinsert );
+
+            node.refresh();
+    }
+
+    function deleteNode( node ) {
+
+        var otherElements = currentNode.listElement.parent().children().length;
+    
+        if (otherElements > 1) { currentNode.listElement.remove(); }
+
+        else { currentNode.listElement.parent().remove(); }
+
+        node.refresh();
+    }
 
     function buildNode($node, $appendTo, level, index, opts) {
         var $table = $("<table cellpadding='0' cellspacing='0' border='0'/>");
@@ -117,6 +175,9 @@
 
         $nodeDiv.click(function() {
             var $this = $(this);
+
+            currentNode = { listElement: $node, visualElement: $this };
+
             opts.nodeClicked($this.data("orgchart-node"), $this);
             if (opts.interactive) {
                 var $row = $this.closest("tr");
@@ -140,6 +201,7 @@
                 }
             }
         });
+
 
         if ($childNodes.length > 0) {
             if (opts.depth == -1 || level+1 < opts.depth) {

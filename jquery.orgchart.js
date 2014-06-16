@@ -18,11 +18,11 @@
         var opts = $.extend({}, $.fn.orgChart.defaults, options),
             currentNode;
 
-        $( opts.addNodeEvent.trigger ).unbind().click( function() { addNode( opts.addNodeEvent.text, opts.addNodeEvent.refresh ); });
+        $( opts.addNodeEvent.trigger ).unbind().click( function() { addNode( opts.addNodeEvent ); });
 
-        $( opts.editNodeEvent.trigger ).unbind().click( function() { editNode( opts.editNodeEvent.text, opts.editNodeEvent.refresh ); });
+        $( opts.editNodeEvent.trigger ).unbind().click( function() { editNode( opts.editNodeEvent ); });
 
-        $( opts.deleteNodeEvent.trigger ).unbind().click( function() { deleteNode( opts.deleteNodeEvent.refresh ); });
+        $( opts.deleteNodeEvent.trigger ).unbind().click( function() { deleteNode( opts.deleteNodeEvent ); });
 
         return this.each(function() {
             var $chartSource = $(this);
@@ -84,12 +84,12 @@
         deleteNodeEvent: false
     };
 
-    function addNode( nodeText, refresh ) {
+    function addNode( node ) {
 
-       if ( currentNode ) {
+        if ( currentNode ) {
             
             var hasChildren = currentNode.visualElement.hasClass('hasChildren'),
-                nodeTextValue = ( nodeText instanceof jQuery ) ? nodeText.val() : nodeText;
+                nodeTextValue = ( node.text instanceof jQuery ) ? node.text.val() : node.text;
 
             if ( !hasChildren ) {
 
@@ -102,28 +102,26 @@
 
             }
 
-            refresh();
+            node.refresh();
 
-       }
+        }
 
     }
 
-    function editNode( nodeText, refresh ) {
+    function editNode( node ) {
 
         var nodeHTML = currentNode.listElement.html(),
             parserForULelement = nodeHTML.indexOf('<ul>'),
             preHTMLinsert = nodeHTML.substring(parserForULelement, nodeHTML.length),
-            nodeTextValue = ( nodeText instanceof jQuery ) ? nodeText.val() : nodeText;
+            nodeTextValue = ( node.text instanceof jQuery ) ? node.text.val() : node.text;
             HTMLinsert = ( parserForULelement === -1 ) ? nodeTextValue : nodeTextValue + preHTMLinsert;
 
             currentNode.listElement.html( HTMLinsert );
 
-            console.log(nodeTextValue)
-
-            refresh();
+            node.refresh();
     }
 
-    function deleteNode( refresh ) {
+    function deleteNode( node ) {
 
         var otherElements = currentNode.listElement.parent().children().length;
     
@@ -131,7 +129,7 @@
 
         else { currentNode.listElement.parent().remove(); }
 
-        refresh();
+        node.refresh();
     }
 
     function buildNode($node, $appendTo, level, index, opts) {

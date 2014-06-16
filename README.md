@@ -151,7 +151,7 @@ $("#organisation").orgChart({container: $("#main")});
 Example with Add/Edit/Delete Methods
 --------------------------------
 
-[Live Demo](http://benjamincripps.com/jquery-org/demo/add-methods.html)
+[Live Demo](http://benjamincripps.com/jquery-org/demo/add-methods.html) 
 
 [Source for Demo with Add/Edit/Delete Methods](https://github.com/bencripps/jquery-orgchart/blob/master/demo/add-method.html)
 

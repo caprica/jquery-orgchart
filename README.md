@@ -27,6 +27,7 @@ Features
  * Small size, only 3K minified (7K un-minified);
  * Easy to to change the appearance of the chart by overriding a small number of CSS style rules;
  * Does exactly what it says on the tin, no feature bloat!
+ * New Methods for dyanamically adding, editing, and deleting chart nodes.
  
 Configuration Options
 ---------------------
@@ -64,6 +65,13 @@ Configuration Options
 `speed` (jQuery speed) specifies the animation speed if `fade` is enabled.
 
 `stack` (boolean) is used to enable stacking.
+
+`addNodeEvent` (object) is used to dynamically add chart nodes.
+
+`editNodeEvent` (object) is used to dynamically edit chart nodes.
+
+`deleteNodeEvent` (object) is used to dynamically delete chart nodes.
+
  
 Simple Example
 --------------
@@ -139,6 +147,33 @@ $("#organisation").orgChart({container: $("#main")});
 [Live Demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demo7.html)
 
 [Source for Dog Food Demo](https://github.com/caprica/jquery-orgchart/blob/master/demo/dogfood.html)
+
+Example with Add/Edit/Delete Methods
+--------------------------------
+
+[Live Demo](http://benjamincripps.com/jquery-org/demo/add-methods.html)
+
+[Source for Demo with Add/Edit/Delete Methods](https://github.com/bencripps/jquery-orgchart/blob/master/demo/add-method.html)
+
+```
+$("#organisation").orgChart({
+    container: $("#main"),
+    replace: true,
+    addNodeEvent: { trigger: $('#addNode'), text: $('#nodeText'), refresh: refreshChart },
+    editNodeEvent:{ trigger: $('#editNode'), text: $('#nodeText'), refresh: refreshChart },
+    deleteNodeEvent: { trigger: $('#deleteNode'), refresh: refreshChart }
+});
+```
+
+The default setting for these methods will modify the last node clicked, and text provided by the text parameter. This can be modified by supplyling a custom callback for trigger.
+
+The text parameter can be a jQuery selector or a string.
+
+```
+$("#organisation").orgChart({
+    editNodeEvent:{ trigger: $('#editNode'), text: 'hello world!', refresh: refreshChart },
+});
+```
 
 Other Examples
 --------------

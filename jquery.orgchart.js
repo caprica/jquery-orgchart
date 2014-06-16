@@ -20,7 +20,7 @@
 
         $( opts.addNodeEvent.trigger ).unbind().click( function() { addNode( opts.addNodeEvent.text, opts.addNodeEvent.refresh ); });
 
-        $( opts.editNodeEvent.trigger ).unbind().click( function() { editNode( opts.addNodeEvent.text, opts.addNodeEvent.refresh ); });
+        $( opts.editNodeEvent.trigger ).unbind().click( function() { editNode( opts.editNodeEvent.text, opts.editNodeEvent.refresh ); });
 
         $( opts.deleteNodeEvent.trigger ).unbind().click( function() { deleteNode( opts.deleteNodeEvent.refresh ); });
 
@@ -88,16 +88,17 @@
 
        if ( currentNode ) {
             
-            var hasChildren = currentNode.visualElement.hasClass('hasChildren');
+            var hasChildren = currentNode.visualElement.hasClass('hasChildren'),
+                nodeTextValue = ( nodeText instanceof jQuery ) ? nodeText.val() : nodeText;
 
             if ( !hasChildren ) {
 
-                currentNode.listElement.append('<ul><li>' + nodeText.val() + '</li></ul>');
+                currentNode.listElement.append('<ul><li>' + nodeTextValue + '</li></ul>');
             }
 
             else {
 
-                currentNode.listElement.find('ul:first').append('<li>' + nodeText.val() + '</li>');
+                currentNode.listElement.find('ul:first').append('<li>' + nodeTextValue + '</li>');
 
             }
 
@@ -112,9 +113,12 @@
         var nodeHTML = currentNode.listElement.html(),
             parserForULelement = nodeHTML.indexOf('<ul>'),
             preHTMLinsert = nodeHTML.substring(parserForULelement, nodeHTML.length),
-            HTMLinsert = ( parserForULelement === -1 ) ? nodeText.val() : nodeText.val() + preHTMLinsert;
+            nodeTextValue = ( nodeText instanceof jQuery ) ? nodeText.val() : nodeText;
+            HTMLinsert = ( parserForULelement === -1 ) ? nodeTextValue : nodeTextValue + preHTMLinsert;
 
             currentNode.listElement.html( HTMLinsert );
+
+            console.log(nodeTextValue)
 
             refresh();
     }

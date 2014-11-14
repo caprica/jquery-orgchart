@@ -9,7 +9,7 @@ HTML/CSS purists likely would not be happy with this since it uses nested tables
 
 This has been tested on Firefox and Chrome on Linux, and Firefox and Chrome on Windows. It also works on IE8, but due to the deficient CSS support in that broken browser the chart looks quite basic.
 
-See [jquery-orgchart-plugin](http://www.capricasoftware.co.uk/legacy/legacy/projects/jquery-orgchart/index.html) for more information.
+See [jquery-orgchart-plugin](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/index.html) for more information.
 
 There are also some [live demos](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demos.html).
 

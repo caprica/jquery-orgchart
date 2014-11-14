@@ -9,11 +9,11 @@ HTML/CSS purists likely would not be happy with this since it uses nested tables
 
 This has been tested on Firefox and Chrome on Linux, and Firefox and Chrome on Windows. It also works on IE8, but due to the deficient CSS support in that broken browser the chart looks quite basic.
 
-See [jquery-orgchart-plugin](http://www.capricasoftware.co.uk/projects/jquery-orgchart/index.html) for more information.
+See [jquery-orgchart-plugin](http://www.capricasoftware.co.uk/legacy/legacy/projects/jquery-orgchart/index.html) for more information.
 
-There are also some [live demos](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demos.html).
+There are also some [live demos](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demos.html).
 
-There is also an [advanced live demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/advanced/index.html)
+There is also an [advanced live demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/advanced/index.html)
 showing Bootstrap integration and one approach to navigating an interactive chart.
 
 Features
@@ -76,7 +76,7 @@ $("#organisation").orgChart({container: $("#main")});
 
 In this example "#organisation" is the selector for the source list and the "container" option specifies the target container for the generated chart.
 
-[Live Demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demo1.html)
+[Live Demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demo1.html)
 
 [Source for Simple Demo](https://github.com/caprica/jquery-orgchart/blob/master/demo/simple.html)
 
@@ -91,7 +91,7 @@ $("#organisation").orgChart({container: $("#main"), stack: true, depth: 2});
 
 Building on the previous example, the "stack" option is added with a corresponding chart "depth" of "2". This means that the chart will display two levels before stacking any remaining levels in a single list.
 
-[Live Demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demo2.html)
+[Live Demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demo2.html)
 
 [Source for Simple Stacking Demo](https://github.com/caprica/jquery-orgchart/blob/master/demo/simple-stacking.html)
 
@@ -123,7 +123,7 @@ Each node in the chart automatically gets assigned a class for its level, this c
 
 Any classes that are specified on items in the source list get applied to the corresponding chart node, this can also be used to customise the style for a particular node or collection of nodes. In this example the main protagonist has his own unique background colour applied, overriding the colour for his level in the chart. The root of the chart has level zero.
 
-[Live Demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demo5.html)
+[Live Demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demo5.html)
 
 [Source for Styling Levels Demo](https://github.com/caprica/jquery-orgchart/blob/master/demo/styling-levels.html)
 
@@ -136,13 +136,13 @@ Eating Your Own Dog Food Example
 $("#organisation").orgChart({container: $("#main")});
 ```
 
-[Live Demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demo7.html)
+[Live Demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demo7.html)
 
 [Source for Dog Food Demo](https://github.com/caprica/jquery-orgchart/blob/master/demo/dogfood.html)
 
 Other Examples
 --------------
 
-[Simple Interactive Live Demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demo3.html)  
-[Links Live Demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demo4.html)  
-[On-Click Live Demo](http://www.capricasoftware.co.uk/projects/jquery-orgchart/demo6.html)
+[Simple Interactive Live Demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demo3.html)  
+[Links Live Demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demo4.html)  
+[On-Click Live Demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demo6.html)

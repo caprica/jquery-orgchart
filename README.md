@@ -152,5 +152,7 @@ Other Examples
 --------------
 
 [Simple Interactive Live Demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demo3.html)
+
 [Links Live Demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demo4.html)
+
 [On-Click Live Demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demo6.html)

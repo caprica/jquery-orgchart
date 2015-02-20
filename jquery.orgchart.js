@@ -2,9 +2,9 @@
  * JQuery Organisation Chart Plugin.
  *
  * Author: Mark Lee
- * Copyright (C)2013 Caprica Software Limited 
+ * Copyright (C)2013-2015 Caprica Software Limited
  * http://www.capricasoftware.co.uk
- * 
+ *
  * Contributions by: Paul Lautman <paul.lautman at gmail.com>
  *
  * This software is licensed under the Creative Commons Attribution-ShareAlike 3.0 License,
@@ -85,7 +85,16 @@
         if ($childNodes.length > 1) {
             $nodeCell.attr("colspan", $childNodes.length*2);
         }
-        
+
+        var $adjunct = $node.children("adjunct").eq(0);
+        if ($adjunct.length > 0) {
+            var $adjunctDiv = $("<div>").addClass("adjunct node").addClass("level"+level).addClass("node"+index).addClass("level"+level+"-node"+index).append(opts.nodeText($adjunct));
+            $adjunctDiv.appendTo($nodeCell);
+            var $linkDiv = $("<div>").addClass("adjunct-link");
+            $linkDiv.appendTo($nodeCell);
+            $adjunct.remove();
+        }
+
         var $heading = $("<h2>").html(opts.nodeText($node));
         var $nodeDiv = $("<div>").addClass("node").addClass("level"+level).addClass("node"+index).addClass("level"+level+"-node"+index).append($heading);
 
@@ -205,5 +214,5 @@
         $table.append($tbody);
         $appendTo.append($table);
     };
-    
+
 })(jQuery);

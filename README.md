@@ -16,18 +16,21 @@ There are also some [live demos](http://www.capricasoftware.co.uk/legacy/project
 There is also an [advanced live demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/advanced/index.html)
 showing Bootstrap integration and one approach to navigating an interactive chart.
 
+NEW: 2015/02/20 Add an "adjunct" node inside your list item
+
 Features
 --------
 
  * HTML markup, including clickable hyperlinks, inside the chart nodes;
  * All attributes from the source list get baked into the corresponding chart nodes (e.g. you can annotate the nodes with your own "data" attributes);
+ * Optionally add an "adjunct" node to each chart node (e.g. for "Assistant to" type relationships);
  * Options to limit the chart to the desired number of levels, and show remaining levels in a single stack;
  * Options to copy CSS styles, classes, HTML data attributes and title attributes (useful for tooltips or external tooltip plugins) from the source list (all enabled by default);
  * Optional callback to handle clicked chart nodes;
  * Small size, only 3K minified (7K un-minified);
  * Easy to to change the appearance of the chart by overriding a small number of CSS style rules;
  * Does exactly what it says on the tin, no feature bloat!
- 
+
 Configuration Options
 ---------------------
 
@@ -64,7 +67,7 @@ Configuration Options
 `speed` (jQuery speed) specifies the animation speed if `fade` is enabled.
 
 `stack` (boolean) is used to enable stacking.
- 
+
 Simple Example
 --------------
 

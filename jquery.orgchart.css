@@ -79,3 +79,22 @@ div.orgChart.interactive div.hasChildren {
 div.orgChart div.node.hover {
     background-color      : white;
 }
+
+div.orgChart div.adjunct.node {
+    position              : absolute;
+    margin-top            : 8px;
+    margin-left           : -100px;
+    width                 : 80px;
+    height                : 40px;
+    background-color      : #efefef;
+}
+
+div.orgChart div.adjunct-link {
+    display               : inline-block;
+    position              : absolute;
+    margin-left           : -20px;
+    margin-top            : 25px;
+    width                 : 20px;
+    height                : 2px;
+    border                : 1px dashed black;
+}

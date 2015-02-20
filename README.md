@@ -23,6 +23,10 @@ NEW: 2015/02/20
 Add an "adjunct" node inside your list item, an adjunct can be used for example for an "Assistant to..." relationship on the chart. Using
 an adjunct is simple, just add an "&lt;adjunct&gt;" element to your list item. The adjunct element can contain HTML.
 
+If you have created some publically available beautiful or interesting charts, please send links or screen-shots to:
+
+> mark [dot] lee [at] capricasoftware [dot] co [dot] uk
+
 Features
 --------
 

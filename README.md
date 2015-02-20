@@ -1,7 +1,7 @@
 jquery-orgchart
 ===============
 
-JQuery Organisation Chart Plugin
+The original JQuery Organisation Chart Plugin.
 
 This is a small JQuery plugin that generates a hierarchical orginisational chart from a nested unordered list.
 
@@ -9,14 +9,19 @@ HTML/CSS purists likely would not be happy with this since it uses nested tables
 
 This has been tested on Firefox and Chrome on Linux, and Firefox and Chrome on Windows. It also works on IE8, but due to the deficient CSS support in that broken browser the chart looks quite basic.
 
-See [jquery-orgchart-plugin](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/index.html) for more information.
+See [jquery-orgchart-plugin](http://www.capricasoftware.co.uk/#/projects/orgchart) for more information.
 
-There are also some [live demos](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demos.html).
+There are some [live demos](http://www.capricasoftware.co.uk/#/projects/orgchart/demos).
+
+There are also some [old live demos](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demos.html).
 
 There is also an [advanced live demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/advanced/index.html)
 showing Bootstrap integration and one approach to navigating an interactive chart.
 
-NEW: 2015/02/20 Add an "adjunct" node inside your list item
+NEW: 2015/02/20
+
+Add an "adjunct" node inside your list item, an adjunct can be used for example for an "Assistant to..." relationship on the chart. Using
+an adjunct is simple, just add an "<adjunct>" element to your list item. The adjunct element can contain HTML.
 
 Features
 --------
@@ -146,6 +151,6 @@ $("#organisation").orgChart({container: $("#main")});
 Other Examples
 --------------
 
-[Simple Interactive Live Demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demo3.html)  
-[Links Live Demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demo4.html)  
+[Simple Interactive Live Demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demo3.html)
+[Links Live Demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demo4.html)
 [On-Click Live Demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demo6.html)

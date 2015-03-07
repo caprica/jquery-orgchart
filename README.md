@@ -18,6 +18,8 @@ There are also some [old live demos](http://www.capricasoftware.co.uk/legacy/pro
 There is also an [advanced live demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/advanced/index.html)
 showing Bootstrap integration and one approach to navigating an interactive chart.
 
+Some [new tutorials](http://capricasoftware.co.uk/#/projects/orgchart/tutorial) are available.
+
 NEW: 2015/02/20
 
 Add an "adjunct" node inside your list item, an adjunct can be used for example for an "Assistant to..." relationship on the chart. Using

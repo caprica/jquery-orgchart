@@ -56,6 +56,7 @@
 
     $.fn.orgChart.defaults = {
         container  : $("body"),
+		verticalDirection: "top",
         depth      : -1,
         levels     : -1,
         showLevels : -1,
@@ -165,7 +166,11 @@
                 $downLineTable.children("tbody").append($downLineLine);
                 $downLineCell.append($downLineTable);
 
-                $tbody.append($downLineRow);
+				if ("bottom" == opts.verticalDirection) {
+					$tbody.prepend($downLineRow);
+				} else { //if "top" by Default
+					$tbody.append($downLineRow);
+				}
 
                 if ($childNodes.length > 0) {
                     $nodeDiv.addClass("hasChildren");
@@ -180,16 +185,23 @@
                     }
                 }
 
+				var horisontalLineClass = (opts.verticalDirection == "bottom") ? "bottom" : "top";
+
                 // Recursively make child nodes...
                 var $linesRow = $("<tr/>").addClass("lines v");
                 $childNodes.each(function() {
-                    var $left = $("<td/>").addClass("line left top");
-                    var $right = $("<td/>").addClass("line right top");
+                    var $left = $("<td/>").addClass("line left " + horisontalLineClass);
+                    var $right = $("<td/>").addClass("line right " + horisontalLineClass);
                     $linesRow.append($left).append($right);
                 });
-                $linesRow.find("td:first").removeClass("top");
-                $linesRow.find("td:last").removeClass("top");
-                $tbody.append($linesRow);
+                $linesRow.find("td:first").removeClass("top").removeClass(horisontalLineClass);
+                $linesRow.find("td:last").removeClass("top").removeClass(horisontalLineClass);
+				if ("bottom" == opts.verticalDirection) {
+					$tbody.prepend($linesRow);
+				} else { //if "top" by Default
+					$tbody.append($linesRow);
+				}
+                
                 var $childNodesRow = $("<tr/>");
                 $childNodes.each(function(index) {
                     var $td = $("<td/>");
@@ -197,7 +209,12 @@
                     buildNode($(this), $td, level+1, index, opts);
                     $childNodesRow.append($td);
                 });
-                $tbody.append($childNodesRow);
+				
+				if ("bottom" == opts.verticalDirection) {
+					$tbody.prepend($childNodesRow);
+				} else { //if "top" by Default
+					$tbody.append($childNodesRow);
+				}
             }
             else if (opts.stack) {
                 var $stackNodes = $childNodes.clone();

@@ -37,6 +37,10 @@ div.orgChart tr.lines td.top {
     border-top            : 3px solid black;
 }
 
+div.orgChart tr.lines td.bottom {
+    border-bottom            : 3px solid black;
+}
+
 div.orgChart tr.lines td.left {
     border-right          : 2px solid black;
 }

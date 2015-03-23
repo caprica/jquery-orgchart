@@ -6,6 +6,7 @@
  * http://www.capricasoftware.co.uk
  *
  * Contributions by: Paul Lautman <paul.lautman at gmail.com>
+ * Contributions by: Danil Volkov <volkovdanil91 at gmail.com>
  *
  * This software is licensed under the Creative Commons Attribution-ShareAlike 3.0 License,
  * see here for license terms:
@@ -55,23 +56,24 @@
     };
 
     $.fn.orgChart.defaults = {
-        container  : $("body"),
-        depth      : -1,
-        levels     : -1,
-        showLevels : -1,
-        stack      : false,
-        chartClass : "orgChart",
-        hoverClass : "hover",
-        nodeText   : function($node) {return $node.clone().children("ul,li").remove().end().html();},
-        interactive: false,
-        fade       : false,
-        speed      : "slow",
-        nodeClicked: function($node) {},
-        copyClasses: true,
-        copyData   : true,
-        copyStyles : true,
-        copyTitle  : true,
-        replace    : true
+        container        : $("body"),
+        verticalDirection: "top-to-bottom",
+        depth            : -1,
+        levels           : -1,
+        showLevels       : -1,
+        stack            : false,
+        chartClass       : "orgChart",
+        hoverClass       : "hover",
+        nodeText         : function($node) {return $node.clone().children("ul,li").remove().end().html();},
+        interactive      : false,
+        fade             : false,
+        speed            : "slow",
+        nodeClicked      : function($node) {},
+        copyClasses      : true,
+        copyData         : true,
+        copyStyles       : true,
+        copyTitle        : true,
+        replace          : true
     };
 
     function buildNode($node, $appendTo, level, index, opts) {
@@ -165,7 +167,12 @@
                 $downLineTable.children("tbody").append($downLineLine);
                 $downLineCell.append($downLineTable);
 
-                $tbody.append($downLineRow);
+                if ("bottom-to-top" == opts.verticalDirection) {
+                    $tbody.prepend($downLineRow);
+                }
+				else {
+                    $tbody.append($downLineRow);
+                }
 
                 if ($childNodes.length > 0) {
                     $nodeDiv.addClass("hasChildren");
@@ -180,24 +187,38 @@
                     }
                 }
 
+                var horizontalClass = ("bottom-to-top" == opts.verticalDirection) ? "bottom" : "top";
+
                 // Recursively make child nodes...
                 var $linesRow = $("<tr/>").addClass("lines v");
                 $childNodes.each(function() {
-                    var $left = $("<td/>").addClass("line left top");
-                    var $right = $("<td/>").addClass("line right top");
+                    var $left = $("<td/>").addClass("line left " + horizontalClass);
+                    var $right = $("<td/>").addClass("line right " + horizontalClass);
                     $linesRow.append($left).append($right);
                 });
-                $linesRow.find("td:first").removeClass("top");
-                $linesRow.find("td:last").removeClass("top");
-                $tbody.append($linesRow);
+                $linesRow.find("td:first").removeClass(horizontalClass);
+                $linesRow.find("td:last").removeClass(horizontalClass);
+                if ("bottom-to-top" == opts.verticalDirection) {
+                    $tbody.prepend($linesRow);
+                }
+				else {
+                    $tbody.append($linesRow);
+                }
+                
                 var $childNodesRow = $("<tr/>");
                 $childNodes.each(function(index) {
-                    var $td = $("<td/>");
+                    var $td = $("<td class='" + horizontalClass + "'/>");
                     $td.attr("colspan", 2);
                     buildNode($(this), $td, level+1, index, opts);
                     $childNodesRow.append($td);
                 });
-                $tbody.append($childNodesRow);
+                
+                if ("bottom-to-top" == opts.verticalDirection) {
+                    $tbody.prepend($childNodesRow);
+                }
+				else {
+                    $tbody.append($childNodesRow);
+                }
             }
             else if (opts.stack) {
                 var $stackNodes = $childNodes.clone();

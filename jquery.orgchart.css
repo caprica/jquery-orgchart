@@ -37,6 +37,10 @@ div.orgChart tr.lines td.top {
     border-top            : 3px solid black;
 }
 
+div.orgChart tr.lines td.bottom {
+    border-bottom            : 3px solid black;
+}
+
 div.orgChart tr.lines td.left {
     border-right          : 2px solid black;
 }
@@ -47,8 +51,15 @@ div.orgChart tr.lines td.right {
 
 div.orgChart td {
     text-align            : center;
-    vertical-align        : top;
     padding               : 0px 2px;
+}
+
+div.orgChart td.top {
+    vertical-align        : top;
+}
+
+div.orgChart td.bottom {
+    vertical-align        : bottom;
 }
 
 div.orgChart div.node {
@@ -56,7 +67,7 @@ div.orgChart div.node {
     border                : 2px solid black;
     display               : inline-block;
     padding               : 0 4px;
-    width                 : 96px;
+    min-width                 : 96px;
     height                : 60px;
     background-color      : #ffffcf;
     line-height           : 1.3em;

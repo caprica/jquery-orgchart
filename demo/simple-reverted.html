@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>Org Chart</title>
+        <link rel="stylesheet" href="demo.css"/>
+        <link rel="stylesheet" href="../jquery.orgchart.css"/>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="../jquery.orgchart.min.js"></script>
+        <script>
+        $(function() {
+            $("#family").orgChart({container: $("#main"), verticalDirection: "bottom-to-top"});
+        });
+        </script>
+		<style type="text/css">
+		div.orgChart div.node {
+			height: auto;
+			padding: 2px 4px;
+		}
+		</style>
+    </head>
+
+    <body>
+
+        <div id="left">
+
+            <ul id="family">
+                <li>Me
+                    <ul>
+                        <li>Andrew
+                            <ul>
+                                <li>Nadya</li>
+                                <li>Vasily</li>
+                            </ul>
+                        </li>
+                        <li>Inna
+                            <ul>
+                                <li>Inna
+									<ul>
+										<li>Lida</li>
+										<li>Ivan</li>
+									</ul>
+								</li>
+                                <li>Anatoly
+									<ul>
+										<li>Zoya</li>
+										<li>Ivan</li>
+									</ul>
+								</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+        <div id="content">
+
+            <h1>JQuery/CSS Organisation Chart</h1>
+
+            <div id="main">
+            </div>
+
+            <div class="text">
+                <h2>JQuery</h2>
+                <pre>
+$("#family").orgChart({container: $("#main"), verticalDirection: "bottom-to-top"});
+                </pre>
+            </div>
+
+        </div>
+
+  </body>
+
+</html>

@@ -79,6 +79,8 @@ Configuration Options
 
 `stack` (boolean) is used to enable stacking.
 
+`verticalDirection` (string) is used for specify how to draw chart from top to bottom, or from bottom to top. Can be "top-to-bottom" or "bottom-to-top"
+
 Simple Example
 --------------
 

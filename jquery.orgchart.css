@@ -83,7 +83,7 @@ div.orgChart div.node.hover {
 div.orgChart.ltr{ direction: ltr; }
 div.orgChart.rtl{ direction: rtl; }
 
-div.orgChart.ltr div.adjunct.node , div.orgChart.rtl div.adjunct.node {
+div.orgChart div.adjunct.node  {
     position              : absolute;
     margin-top            : 8px;
     width                 : 80px;
@@ -91,8 +91,8 @@ div.orgChart.ltr div.adjunct.node , div.orgChart.rtl div.adjunct.node {
     background-color      : #efefef;
 }
 
-div.orgChart.ltr div.adjunct.node{	margin-left		: -110px; }
-div.orgChart.rtl div.adjunct.node{ margin-right	: -110px; }
+div.orgChart.ltr div.adjunct.node{ margin-left  : -110px; }
+div.orgChart.rtl div.adjunct.node{ margin-right : -110px; }
 
 div.orgChart.ltr div.adjunct-link , div.orgChart.rtl div.adjunct-link{
     display               : inline-block;
@@ -101,5 +101,5 @@ div.orgChart.ltr div.adjunct-link , div.orgChart.rtl div.adjunct-link{
     width                 : 20px;
     border                : 1px dashed black;
 }
-div.orgChart.ltr div.adjunct-link{ margin-left		: -20px;}
-div.orgChart.rtl div.adjunct-link{ margin-right	: -20px;}
+div.orgChart.ltr div.adjunct-link{ margin-left  :   -20px;}
+div.orgChart.rtl div.adjunct-link{ margin-right	:   -20px;}

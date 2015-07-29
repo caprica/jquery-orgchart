@@ -28,7 +28,14 @@
             // Store the original element
             $this.data("chart-source", $chartSource);
             // Build the chart...
-            var $container = $("<div class='" + opts.chartClass + "'/>");
+            var chart_cls = '';
+            if(opts.direction == 'rtl'){
+                chart_cls = opts.chartClass+' rtl';
+            }else{
+                chart_cls = opts.chartClass+' ltr';
+            }
+
+            var $container = $("<div class='" + chart_cls + "'/>");
             if (opts.interactive) {
                 $container.addClass("interactive");
             }
@@ -71,7 +78,8 @@
         copyData   : true,
         copyStyles : true,
         copyTitle  : true,
-        replace    : true
+        replace    : true,
+        direction  : 'ltr'
     };
 
     function buildNode($node, $appendTo, level, index, opts) {
@@ -159,8 +167,13 @@
                 var $downLineTable = $("<table cellpadding='0' cellspacing='0' border='0'>");
                 $downLineTable.append("<tbody>");
                 var $downLineLine = $("<tr/>").addClass("lines x");
-                var $downLeft = $("<td>").addClass("line left");
-                var $downRight = $("<td>").addClass("line right");
+                if(opts.direction == 'rtl'){
+                    var $downLeft = $("<td>").addClass("line right");
+                    var $downRight = $("<td>").addClass("line left");
+                }else{
+                    var $downLeft = $("<td>").addClass("line left");
+                    var $downRight = $("<td>").addClass("line right");
+                }
                 $downLineLine.append($downLeft).append($downRight);
                 $downLineTable.children("tbody").append($downLineLine);
                 $downLineCell.append($downLineTable);
@@ -183,9 +196,14 @@
                 // Recursively make child nodes...
                 var $linesRow = $("<tr/>").addClass("lines v");
                 $childNodes.each(function() {
-                    var $left = $("<td/>").addClass("line left top");
-                    var $right = $("<td/>").addClass("line right top");
-                    $linesRow.append($left).append($right);
+                    if(opts.direction == 'rtl'){
+                        var $left = $("<td/>").addClass("line right top");
+                        var $right = $("<td/>").addClass("line left top");
+                    }else{
+                        var $left = $("<td/>").addClass("line left top");
+                        var $right = $("<td/>").addClass("line right top");
+                    }
+                      $linesRow.append($left).append($right);
                 });
                 $linesRow.find("td:first").removeClass("top");
                 $linesRow.find("td:last").removeClass("top");

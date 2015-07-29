@@ -79,21 +79,27 @@ div.orgChart.interactive div.hasChildren {
 div.orgChart div.node.hover {
     background-color      : white;
 }
+/* rtl */
+div.orgChart.ltr{ direction: ltr; }
+div.orgChart.rtl{ direction: rtl; }
 
-div.orgChart div.adjunct.node {
+div.orgChart.ltr div.adjunct.node , div.orgChart.rtl div.adjunct.node {
     position              : absolute;
     margin-top            : 8px;
-    margin-left           : -110px;
     width                 : 80px;
     height                : 40px;
     background-color      : #efefef;
 }
 
-div.orgChart div.adjunct-link {
+div.orgChart.ltr div.adjunct.node{	margin-left		: -110px; }
+div.orgChart.rtl div.adjunct.node{ margin-right	: -110px; }
+
+div.orgChart.ltr div.adjunct-link , div.orgChart.rtl div.adjunct-link{
     display               : inline-block;
     position              : absolute;
-    margin-left           : -20px;
     margin-top            : 25px;
     width                 : 20px;
     border                : 1px dashed black;
 }
+div.orgChart.ltr div.adjunct-link{ margin-left		: -20px;}
+div.orgChart.rtl div.adjunct-link{ margin-right	: -20px;}

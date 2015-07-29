@@ -99,7 +99,7 @@ In this example "#organisation" is the selector for the source list and the "con
 Simple RTL Example
 --------------
 
-![Organisation Chart Demo](https://github.com/caprica/jquery-orgchart/raw/master/demo/simple - rtl.png "Simple Demo")
+![Organisation Chart Demo](https://raw.githubusercontent.com/Goback/jquery-orgchart/master/demo/simple - rtl.png "Simple RTL Demo")
 
 ```
 $("#organisation").orgChart({container: $("#main") , direction:'rtl'});

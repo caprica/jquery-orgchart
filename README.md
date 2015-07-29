@@ -79,6 +79,8 @@ Configuration Options
 
 `stack` (boolean) is used to enable stacking.
 
+`direction` (string) is used to work with right to left pages (rtl|ltr) , Default:ltr
+
 Simple Example
 --------------
 

@@ -96,6 +96,21 @@ In this example "#organisation" is the selector for the source list and the "con
 
 [Source for Simple Demo](https://github.com/caprica/jquery-orgchart/blob/master/demo/simple.html)
 
+Simple RTL Example
+--------------
+
+![Organisation Chart Demo](https://github.com/caprica/jquery-orgchart/raw/master/demo/simple - rtl.png "Simple Demo")
+
+```
+$("#organisation").orgChart({container: $("#main") , direction:'rtl'});
+```
+
+In this example "#organisation" is the selector for the source list and the "container" option specifies the target container for the generated chart and the "direction" indicates that the page or langues is right to left.
+
+[Live Demo](http://www.capricasoftware.co.uk/legacy/projects/jquery-orgchart/demo1-rtl.html)
+
+[Source for Simple Demo](https://github.com/Goback/jquery-orgchart/blob/master/demo/simple - rtl.html)
+
 Simple Stacking Example
 -----------------------
 

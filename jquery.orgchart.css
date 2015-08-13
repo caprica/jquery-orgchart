@@ -26,6 +26,7 @@ div.orgChart ul.stack ul {
 
 div.orgChart table {
     width                 : 100%;
+    margin                : auto !important;
 }
 
 div.orgChart tr.lines td.line {

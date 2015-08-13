@@ -91,6 +91,10 @@
         var $adjunct = $node.children("adjunct").eq(0);
         if ($adjunct.length > 0) {
             var $adjunctDiv = $("<div>").addClass("adjunct node").addClass("level"+level).addClass("node"+index).addClass("level"+level+"-node"+index).append(opts.nodeText($adjunct));
+            // Copy classes from the source list to the chart node
+            if (opts.copyClasses) {
+                $adjunctDiv.addClass($node.attr("class"));
+            }
             $adjunctDiv.appendTo($nodeCell);
             var $linkDiv = $("<div>").addClass("adjunct-link");
             $linkDiv.appendTo($nodeCell);

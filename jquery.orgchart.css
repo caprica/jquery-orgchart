@@ -97,3 +97,12 @@ div.orgChart div.adjunct-link {
     width                 : 20px;
     border                : 1px dashed black;
 }
+
+div.orgChart div.description {
+	font-size             : 0.8em;
+	margin-top            : 4px;
+}
+
+div.orgChart div.description ul {
+	font-size             : 1em;
+}

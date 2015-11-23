@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Org Chart</title>
+		<link rel="stylesheet" href="demo.css"/>
+		<link rel="stylesheet" href="../jquery.orgchart.css"/>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="../jquery.orgchart.js"></script>
+		<script>
+			$(function() {
+			    $("#basic-description-source").orgChart({container: $("#main")});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="left">
+			<ul id="basic-description-source">
+				<li>
+					President 
+					<div class="divChart"></div>
+						<desc>
+							<a href="http://www.google.com" class="linkChart">Mr. President</a> 
+						</desc>
+					<ul>
+						<li>
+							Department 1
+							<desc>
+								<ul>
+									<li><a href="http://www.google.com" class="linkChart">John Black</a></li>
+									<li><a href="http://www.google.com" class="linkChart">Rob Red</a></li>
+								</ul>
+							</desc>
+							<ul>
+								<li>
+									Office 1.1
+									<desc>
+										<ul>
+											<li><a href="http://www.google.com" class="linkChart">Tod White</a></li>
+											<li><a href="http://www.google.com" class="linkChart">Peter Green</a></li>
+										</ul>
+									</desc>
+								</li>
+								<li>
+									Office 1.2
+									<desc>
+										<ul>
+											<li><a href="http://www.google.com" class="linkChart">Chris Yellow</a></li>
+											<li><a href="http://www.google.com" class="linkChart">Marta Blue</a></li>
+											<li><a href="http://www.google.com" class="linkChart">Marge Brown</a></li>
+										</ul>
+									</desc>
+									<ul>
+										<li>
+											Office 1.2.1
+											<desc>
+												This office is going to be closed, so no employees are present.
+											</desc>
+										</li>
+										<li>Office 1.2.2
+											<desc>
+									  			<ul>
+										  			<li><a href="http://www.google.com" class="linkChart">John Purple</a></li>
+									  				<li><a href="http://www.google.com" class="linkChart">William Red</a></li>
+							  					</ul>
+							  				</desc>
+						  				</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							Department 2
+							<desc>
+								<ul>
+									<li><a href="http://www.google.com" class="linkChart">Susy Gray</a></li>
+									<li><a href="http://www.google.com" class="linkChart">Greta Pink</a></li>
+								</ul>
+							</desc>
+						</li>
+						<li>
+							Department 3
+							<desc>
+								<ul>
+									<li><a href="http://www.google.com" class="linkChart">Elizabeth Red</a></li>
+									<li><a href="http://www.google.com" class="linkChart">David Blue</a></li>
+								</ul>
+							</desc>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div id="content">
+			<h1>JQuery/CSS Organisation Chart</h1>
+			<div id="main">
+			</div>
+			<div class="text">
+				<h2>JQuery</h2>
+				<pre>
+$("#basic-description-source").orgChart({container: $("#main")});
+                </pre>
+			</div>
+		</div>
+	</body>
+</html>

@@ -95,6 +95,15 @@
             $adjunct.remove();
         }
 
+        var $desc = $node.children("desc").eq(0);
+        var $descDiv;
+        if ($desc.length > 0) {
+			$desc.find("ul").addClass("stack").addClass("level"+level).addClass("description"+index).addClass("level"+level+"-description"+index);
+			$descDiv = $("<div>").addClass("description").addClass("level"+level).addClass("description"+index).addClass("level"+level+"-description"+index).addClass("stack-container").append($desc.html());
+            $descDiv.appendTo($nodeCell);
+            $desc.remove();
+        }
+    
         var $heading = $("<h2>").html(opts.nodeText($node));
         var $nodeDiv = $("<div>").addClass("node").addClass("level"+level).addClass("node"+index).addClass("level"+level+"-node"+index).append($heading);
 
@@ -121,6 +130,9 @@
         $nodeDiv.data("orgchart-level", level).data("orgchart-node", $node);
 
         $nodeCell.append($nodeDiv);
+        if ($descDiv) {
+            $nodeCell.append($descDiv);
+        }
         $nodeRow.append($nodeCell);
         $tbody.append($nodeRow);
 

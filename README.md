@@ -154,6 +154,19 @@ $("#organisation").orgChart({container: $("#main")});
 
 [Source for Dog Food Demo](https://github.com/caprica/jquery-orgchart/blob/master/demo/dogfood.html)
 
+Adding Description To Nodes Example
+-----------------------------------
+
+![Adding Description To Nodes Demo](https://raw.githubusercontent.com/pierpaolocira/jquery-orgchart/pierpaolocira-patch-add-desctiption-support/demo/description.png "Node With Description Demo")
+
+```
+$("#basic-description-source").orgChart({container: $("#main")});
+```
+
+This allows to add a textual description (in form of a Div or an Ul) to one or more nodes.
+
+[Adding Description To Nodes Demo](https://github.com/pierpaolocira/jquery-orgchart/tree/pierpaolocira-patch-add-desctiption-support/demo/description.html)
+
 Other Examples
 --------------
 
